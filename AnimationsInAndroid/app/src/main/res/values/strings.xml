@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Animations In Android</string>
+    <string name="move">Move</string>
+    <string name="rotate">Rotate</string>
+    <string name="scale">Scale</string>
+    <string name="Yogesh">Yogesh</string>
+    <string name="Alpha">Alpha</string>
+</resources>

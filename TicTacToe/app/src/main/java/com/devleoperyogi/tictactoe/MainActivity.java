@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void Check(View view) {
 
+
         Button btnCurrent = (Button) view;
 
         if (btnCurrent.getText().toString().isEmpty()) {
