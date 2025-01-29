@@ -4,6 +4,7 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -14,17 +15,28 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9;
-    int flag = 0;
-    int count = 1;
-    String b1, b2, b3, b4, b5, b6, b7, b8, b9;
+    private Button[] buttons;
+    private Button resetButton;
+    private TextView scoreBoard;
+    private int flag;
+    private int count;
+    private int scoreX;
+    private int scoreO;
+
+    private final int[][] winConditions = {
+            {0, 1, 2}, {3, 4, 5}, {6, 7, 8}, // Rows
+            {0, 3, 6}, {1, 4, 7}, {2, 5, 8}, // Columns
+            {0, 4, 8}, {2, 4, 6}             // Diagonals
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-        init(); // Call the init method to initialize buttons
+
+        init();
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -32,117 +44,98 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    // Method to initialize buttons and find their IDs
     private void init() {
-        btn1 = findViewById(R.id.btn1);
-        btn2 = findViewById(R.id.btn2);
-        btn3 = findViewById(R.id.btn3);
-        btn4 = findViewById(R.id.btn4);
-        btn5 = findViewById(R.id.btn5);
-        btn6 = findViewById(R.id.btn6);
-        btn7 = findViewById(R.id.btn7);
-        btn8 = findViewById(R.id.btn8);
-        btn9 = findViewById(R.id.btn9);
+        buttons = new Button[]{
+                findViewById(R.id.btn1), findViewById(R.id.btn2), findViewById(R.id.btn3),
+                findViewById(R.id.btn4), findViewById(R.id.btn5), findViewById(R.id.btn6),
+                findViewById(R.id.btn7), findViewById(R.id.btn8), findViewById(R.id.btn9)
+        };
+
+        resetButton = findViewById(R.id.btnReset);
+        scoreBoard = findViewById(R.id.scoreBoard);
+
+        updateScoreBoard();
+
+        for (Button button : buttons) {
+            button.setOnClickListener(this::check);
+        }
+
+        resetButton.setOnClickListener(v -> newGame());
     }
 
-
-    public void Check(View view) {
-
-
+    public void check(View view) {
         Button btnCurrent = (Button) view;
 
         if (btnCurrent.getText().toString().isEmpty()) {
             count++;
+            btnCurrent.setText(flag == 0 ? "X" : "O");
+            btnCurrent.setTextColor(getResources().getColor(flag == 0 ? R.color.textColorX : R.color.textColorO));
+            btnCurrent.setTypeface(null, Typeface.BOLD);
+            flag = 1 - flag;
 
-            if (flag == 0) {
+            if (count >= 5 && checkWin()) return;
 
-                btnCurrent.setText("X");
-                btnCurrent.setTextColor(getResources().getColor(R.color.textColorX));
-                btnCurrent.setTypeface(null, Typeface.BOLD);
-
-                flag = 1;
-            } else {
-                btnCurrent.setText("O");
-                btnCurrent.setTextColor(getResources().getColor(R.color.textColorO));
-                btnCurrent.setTypeface(null, Typeface.BOLD);
-                flag = 0;
-            }
-
-            if (count > 4) {
-
-                b1 = btn1.getText().toString();
-                b2 = btn2.getText().toString();
-                b3 = btn3.getText().toString();
-                b4 = btn4.getText().toString();
-                b5 = btn5.getText().toString();
-                b6 = btn6.getText().toString();
-                b7 = btn7.getText().toString();
-                b8 = btn8.getText().toString();
-                b9 = btn9.getText().toString();
-
-                // Conditions
-
-                if (b1.equals(b2) && b2.equals(b3) && !b1.isEmpty()) {
-                    Toast.makeText(this, "Winner is " + b1, Toast.LENGTH_SHORT).show();
-                    newGame();
-
-
-                } else if (b4.equals(b5) && b5.equals(b6) && !b4.isEmpty()) {
-                    Toast.makeText(this, "Winner is " + b4, Toast.LENGTH_SHORT).show();
-
-                    newGame();
-                } else if (b7.equals(b8) && b8.equals(b9) && !b7.isEmpty()) {
-
-                    Toast.makeText(this, "Winner is " + b7, Toast.LENGTH_SHORT).show();
-                    newGame();
-
-                } else if (b1.equals(b4) && b4.equals(b7) && !b1.isEmpty()) {
-
-                    Toast.makeText(this, "Winner is " + b1, Toast.LENGTH_SHORT).show();
-                    newGame();
-
-                } else if (b2.equals(b5) && b5.equals(b8) && !b2.isEmpty()) {
-
-                    Toast.makeText(this, "Winner is " + b2, Toast.LENGTH_SHORT).show();
-                    newGame();
-                } else if (b3.equals(b6) && b6.equals(b9) && !b3.isEmpty()) {
-
-                    Toast.makeText(this, "Winner is " + b3, Toast.LENGTH_SHORT).show();
-
-                    newGame();
-                } else if (b1.equals(b5) && b5.equals(b9) && !b1.isEmpty()) {
-
-                    Toast.makeText(this, "Winner is " + b1, Toast.LENGTH_SHORT).show();
-
-                    newGame();
-                } else if (b3.equals(b5) && b5.equals(b7) && !b3.isEmpty()) {
-
-                    Toast.makeText(this, "Winner is " + b3, Toast.LENGTH_SHORT).show();
-                    newGame();
-
-                } else if (count == 9) {
-                    Toast.makeText(this, "Game is Drawn!", Toast.LENGTH_SHORT).show();
-                    newGame();
-                }
-
+            if (count == 9) {
+                Toast.makeText(this, "Game is Drawn!", Toast.LENGTH_SHORT).show();
+                newGame();
             }
         }
-
-
     }
 
+    private boolean checkWin() {
+        for (int[] condition : winConditions) {
+            String a = buttons[condition[0]].getText().toString();
+            String b = buttons[condition[1]].getText().toString();
+            String c = buttons[condition[2]].getText().toString();
+
+            if (!a.isEmpty() && a.equals(b) && b.equals(c)) {
+                highlightWinningCombination(condition, a); // Pass the winner to highlightWinningCombination
+                Toast.makeText(this, "Winner is " + a, Toast.LENGTH_SHORT).show();
+                updateScore(a);
+
+                // Delay resetting the game slightly to avoid crashing
+                buttons[0].postDelayed(this::newGame, 1000);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // Method to highlight the winning combination and change background color
+    private void highlightWinningCombination(int[] condition, String winner) {
+        for (int index : condition) {
+            buttons[index].setBackgroundColor(getResources().getColor(R.color.highlightColor));
+        }
+
+        // Change background color based on winner
+        if (winner.equals("X")) {
+            findViewById(R.id.main).setBackgroundColor(getResources().getColor(R.color.winXColor));
+        } else {
+            findViewById(R.id.main).setBackgroundColor(getResources().getColor(R.color.winOColor));
+        }
+    }
+
+    private void updateScore(String winner) {
+        if (winner.equals("X")) scoreX++;
+        else scoreO++;
+
+        updateScoreBoard();
+    }
+
+    private void updateScoreBoard() {
+        scoreBoard.setText(String.format("X: %d | O: %d", scoreX, scoreO));
+    }
+
+    // Reset background color during a new game
     public void newGame() {
-        btn1.setText("");
-        btn2.setText("");
-        btn3.setText("");
-        btn4.setText("");
-        btn5.setText("");
-        btn6.setText("");
-        btn7.setText("");
-        btn8.setText("");
-        btn9.setText("");
+        for (Button button : buttons) {
+            button.setText("");
+            button.setBackgroundResource(R.drawable.circular_button); // Reset to default circular style
+        }
         count = 0;
         flag = 0;
-    }
 
+        // Reset background color
+        findViewById(R.id.main).setBackgroundColor(getResources().getColor(R.color.backgroundColor));
+    }
 }

@@ -1,12 +1,21 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <!-- Existing colors -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
 
-    <color name="primaryButtonColor">#008080</color>
-    <color name="secondaryButtonColor">#D3D3D3</color>
-    <color name="textColorX">#FF0000</color>
-    <color name="textColorO">#0000FF</color>
-    <color name="backgroundColor">#E0F7FA</color>
+    <!-- Colors for the game -->
+    <color name="highlightColor">#FFBB33</color>        <!-- Highlighted winning combination -->
+    <color name="winXColor">#FFCDD2</color>            <!-- Background color when X wins -->
+    <color name="winOColor">#C8E6C9</color>            <!-- Background color when O wins -->
+    <color name="backgroundColor">#FFD700</color>      <!-- Default background color -->
+    <color name="textColorX">#FF0000</color>           <!-- Text color for X -->
+    <color name="textColorO">#0000FF</color>           <!-- Text color for O -->
 
+    <!-- New Colors -->
+    <color name="scoreColor">#1A237E</color>           <!-- Color for the score text -->
+    <color name="resetButtonColor">#4CAF50</color>     <!-- Background color of reset button -->
+    <color name="buttonPressedColor">#1E90FF</color>   <!-- Button pressed state color -->
+    <color name="buttonNormalColor">#4169E1</color>    <!-- Button normal state color -->
+    <color name="buttonBorderColor">#00008B</color>    <!-- Button border color -->
+    <color name="gridLineColor">#BDBDBD</color>        <!-- Grid line color -->
 </resources>
