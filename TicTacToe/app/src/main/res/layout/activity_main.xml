@@ -9,6 +9,9 @@
     android:background="@color/backgroundColor">
 
     <!-- Scoreboard -->
+
+    <!-- Game Buttons (3x3 Grid) -->
+
     <TextView
         android:id="@+id/scoreBoard"
         android:layout_width="wrap_content"
@@ -16,11 +19,10 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="16dp"
         android:text="@string/x_0_o_0"
+        android:textColor="@color/scoreColor"
         android:textSize="20sp"
-        android:textStyle="bold"
-        android:textColor="@color/scoreColor" />
+        android:textStyle="bold" />
 
-    <!-- Game Buttons (3x3 Grid) -->
     <GridLayout
         android:id="@+id/gridLayout"
         android:layout_width="wrap_content"

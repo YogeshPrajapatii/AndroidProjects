@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">RecyclerView</string>
+    <string name="floats">Custom Dialogue Button</string>
+    <string name="add_contact">Add Contact</string>
+    <string name="enter_number">Enter Number</string>
+    <string name="enter_name">Enter Name</string>
+    <string name="add_details">OK</string>
+</resources>

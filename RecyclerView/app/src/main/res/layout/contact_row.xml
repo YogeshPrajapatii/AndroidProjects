@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="top"
+    android:padding="16dp"
+    android:id="@+id/llRow">
+
+    <!-- CardView -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="10dp"
+        app:cardUseCompatPadding="true"
+        android:elevation="5dp">
+
+        <!-- Parent LinearLayout inside CardView -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:id="@+id/rootLayout"
+            android:gravity="center">
+
+            <!-- ImageView -->
+            <ImageView
+                android:id="@+id/imgProfile"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:contentDescription="Profile Image"
+                android:src="@drawable/a"
+                tools:ignore="HardcodedText"/>
+
+            <!-- Horizontal LinearLayout for Two TextViews -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="8dp">
+
+                <TextView
+                    android:id="@+id/txtName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Contact"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_marginEnd="8dp"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:id="@+id/txtPhone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Contact Number"
+                    android:textSize="16sp"
+                    android:textColor="#666"
+                    tools:ignore="HardcodedText" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>
