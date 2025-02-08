@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- Default state -->
+<!--     Default state-->
     <item>
         <shape android:shape="rectangle">
             <solid android:color="#ff6d00" /> <!-- Default color -->
@@ -12,4 +12,5 @@
                 android:centerColor="#083A59"/>
         </shape>
     </item>
-</selector>
+
+</layer-list>
