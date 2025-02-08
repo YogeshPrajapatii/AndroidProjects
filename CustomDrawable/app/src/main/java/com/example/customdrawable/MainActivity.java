@@ -1,7 +1,10 @@
 package com.example.customdrawable;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -14,6 +17,7 @@ import androidx.core.view.WindowInsetsCompat;
 public class MainActivity extends AppCompatActivity {
     AppCompatButton customButton;
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,11 +28,23 @@ public class MainActivity extends AppCompatActivity {
 
         customButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view)
+            public void onClick(View v)
             {
-               Toast.makeText(MainActivity.this,"My customized button",Toast.LENGTH_LONG).show();
+                Toast toast = new Toast(MainActivity.this);
+                View view = getLayoutInflater().inflate(R.layout.custom_toast_layout,(ViewGroup) findViewById(R.id.toastLLayout));
+                toast.setView(view);
+
+                TextView toastMessage = view.findViewById(R.id.toastMessage);
+                toastMessage.setText("Message Sent");
+                toast.setDuration(Toast.LENGTH_LONG);
+                toast.show();
+
             }
         });
+
+       
+
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
