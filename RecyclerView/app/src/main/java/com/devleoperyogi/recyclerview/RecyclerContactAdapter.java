@@ -7,6 +7,8 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -21,6 +23,7 @@ import java.util.ArrayList;
 
 public class RecyclerContactAdapter extends RecyclerView.Adapter<RecyclerContactAdapter.ViewHolder> {
     Context context;
+    private boolean isFirstTime = true;
     ArrayList<contactModel> arrContacts;
 
     RecyclerContactAdapter(Context context, ArrayList<contactModel> arrContacts) {
@@ -95,6 +98,10 @@ public class RecyclerContactAdapter extends RecyclerView.Adapter<RecyclerContact
             builder.show();
             return true;
         });
+        if(isFirstTime){
+        setAnim(holder.itemView, position);}
+
+
     }
 
     @Override
@@ -114,6 +121,14 @@ public class RecyclerContactAdapter extends RecyclerView.Adapter<RecyclerContact
             txtPhone = itemView.findViewById(R.id.txtPhone);
             imgProfile = itemView.findViewById(R.id.imgProfile);
             llRow = itemView.findViewById(R.id.llRow);
+        }
+    }
+
+    public void setAnim(View viewToAnimate , int position){
+        Animation slideIn = AnimationUtils.loadAnimation(context, android.R.anim.slide_in_left);
+        viewToAnimate.startAnimation(slideIn);
+        if(position==arrContacts.size()-1) {
+            isFirstTime = false;
         }
     }
 }
