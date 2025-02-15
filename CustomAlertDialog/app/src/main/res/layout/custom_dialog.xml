@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#C7D0D5"
+    android:orientation="vertical"
+    android:id="@+id/customDilouge">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:contentDescription="@string/todo"
+        android:src="@android:drawable/btn_star_big_on"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/done"
+            android:textStyle="bold"
+            android:textColor="#2F4550"
+            android:textSize="40sp"
+            android:gravity="center"
+            android:layout_margin="15dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/success"
+            android:textStyle="bold"
+            android:textColor="#1A91C5"
+            android:textSize="25sp"
+            android:gravity="center"
+            android:layout_margin="15dp"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnOk"
+            android:text="@string/ok"
+            android:textSize="30sp"/>
+
+    </LinearLayout>
+</LinearLayout>

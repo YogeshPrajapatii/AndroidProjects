@@ -2,6 +2,7 @@ package com.example.customdrawable;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -42,7 +43,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-       
+        String TAG = "Test";
+        Log.d( "Test", "App Started");
 
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
