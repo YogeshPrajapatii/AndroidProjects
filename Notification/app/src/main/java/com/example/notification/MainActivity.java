@@ -87,10 +87,6 @@ public class MainActivity extends AppCompatActivity {
                 .setBigContentTitle("Detailed Message")
                 .setSummaryText("Message from your friend");
 
-
-
-
-
         // ✅ Step 3: Create Notification Channel (For Android 8.0+)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel channel = new NotificationChannel(
