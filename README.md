@@ -16,9 +16,6 @@ Demonstrates how to pass data between activities using intents in Android.
 ### 4️⃣ List Example 📜
 A project to understand RecyclerView, ListView, and other list-based UI components in Android.
 
-### 5️⃣ Lottie Animation ✨
-Integrating **Lottie animations** into Android apps to create smooth and visually appealing UI interactions.
-
 ### 6️⃣ Tic Tac Toe 🎮
 A fun Tic Tac Toe game built using Android UI components, allowing two players to play on the same device.
 
