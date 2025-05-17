@@ -19,6 +19,7 @@ A project to understand RecyclerView, ListView, and other list-based UI componen
 ### 6️⃣ Tic Tac Toe 🎮
 A fun Tic Tac Toe game built using Android UI components, allowing two players to play on the same device.
 
+###  Enrolled in Chohort 3.0 Full Stack App Development Course (By NEAT ROOTS) 
 ---
 
 ## ⚙️ **How to Run the Projects?**

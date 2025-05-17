@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/homeIcon"
+        android:title="@string/home"
+        android:icon="@drawable/ic_launcher_foreground"/>
+
+    <item
+        android:id="@+id/chatIcon"
+        android:title="@string/chat"
+        android:icon="@mipmap/ic_launcher"/>
+
+    <item
+        android:id="@+id/settingsIcon"
+        android:title="@string/settings"
+        android:icon="@color/cardview_dark_background"/>
+
+</menu>
