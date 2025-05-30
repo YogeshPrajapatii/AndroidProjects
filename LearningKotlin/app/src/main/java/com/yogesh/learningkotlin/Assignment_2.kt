@@ -1,4 +1,4 @@
-package com.yogesh.learningkotlin
+package com.yogesh.learningkotlin.kotlinpractice
 
 fun main() {
 

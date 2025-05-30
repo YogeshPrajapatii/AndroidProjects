@@ -1,4 +1,4 @@
-package com.yogesh.learningkotlin
+package com.yogesh.learningkotlin.kotlinpractice
 
 class SecureBankAccount {
     var accountHolder: String = ""
@@ -6,7 +6,7 @@ class SecureBankAccount {
 
 
     fun deposit(bal: Long) {
-        
+
 
         if (bal > 0) {
             balance += bal

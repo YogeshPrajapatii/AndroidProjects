@@ -1,4 +1,4 @@
-package com.yogesh.learningkotlin
+package com.yogesh.learningkotlin.kotlinpractice
 
 // Default Constructor
 /*class Sample {
@@ -126,4 +126,3 @@ fun main() {/*val age = 21
     val student3 = Const("Yogesh Verma", "Bhiwani")
 
 }
-
