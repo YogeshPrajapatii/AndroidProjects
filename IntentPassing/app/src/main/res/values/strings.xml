@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">IntentPassing</string>
+    <string name="learning_intent_passing_in_android_studio">Learning Intent Passing in Android Studio</string>
+    <string name="name">Name: </string>
+        <string name="next">Next</string>
+
+</resources>

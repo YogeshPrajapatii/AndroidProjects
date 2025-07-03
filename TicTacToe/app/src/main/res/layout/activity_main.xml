@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="16dp"
+    android:background="@color/backgroundColor">
+
+    <!-- Scoreboard -->
+
+    <!-- Game Buttons (3x3 Grid) -->
+
+    <TextView
+        android:id="@+id/scoreBoard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="16dp"
+        android:text="@string/x_0_o_0"
+        android:textColor="@color/scoreColor"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <GridLayout
+        android:id="@+id/gridLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:rowCount="3"
+        android:columnCount="3"
+        android:layout_marginBottom="16dp"
+        android:layout_gravity="center">
+
+        <!-- Buttons -->
+        <Button
+            android:id="@+id/btn1"
+            style="@style/GameButton" />
+
+        <Button
+            android:id="@+id/btn2"
+            style="@style/GameButton" />
+
+        <Button
+            android:id="@+id/btn3"
+            style="@style/GameButton" />
+
+        <Button
+            android:id="@+id/btn4"
+            style="@style/GameButton" />
+
+        <Button
+            android:id="@+id/btn5"
+            style="@style/GameButton" />
+
+        <Button
+            android:id="@+id/btn6"
+            style="@style/GameButton" />
+
+        <Button
+            android:id="@+id/btn7"
+            style="@style/GameButton" />
+
+        <Button
+            android:id="@+id/btn8"
+            style="@style/GameButton" />
+
+        <Button
+            android:id="@+id/btn9"
+            style="@style/GameButton" />
+    </GridLayout>
+
+    <!-- Reset Button -->
+    <Button
+        android:id="@+id/btnReset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:backgroundTint="@color/resetButtonColor"
+        android:text="@string/reset_game"
+        android:textColor="@color/white"
+        android:padding="12dp"
+        android:textStyle="bold"
+        android:elevation="4dp" />
+
+</LinearLayout>

@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Tab Layout Example</string>
+    <string name="status">Status</string>
+    <string name="post">Post</string>
+    <string name="chat">Chat</string>
+
+</resources>

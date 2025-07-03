@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Implicit Intent &amp; Explicit Intent</string>
+    <string name="dial">Dial</string>
+    <string name="message">Message</string>
+    <string name="share">Share</string>
+    <string name="email">Email</string>
+</resources>

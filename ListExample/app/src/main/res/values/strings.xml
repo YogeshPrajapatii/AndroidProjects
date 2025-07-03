@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">List Example</string>
+    <string name="select_your_id_proof">SELECT YOUR ID PROOF</string>
+    <string name="search_here">Search here ...</string>
+</resources>

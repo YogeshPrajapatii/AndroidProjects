@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Navigation Drawer Sample</string>
+    <string name="header_image">Header Image</string>
+    <string name="yogesh_verma">Yogesh Verma</string>
+    <string name="home">Home</string>
+    <string name="settings">Settings</string>
+    <string name="chat">Chat</string>
+</resources>

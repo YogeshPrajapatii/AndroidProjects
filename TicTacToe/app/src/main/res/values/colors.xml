@@ -1,0 +1,41 @@
+<resources>
+
+    <!-- Existing colors -->
+
+    <color name="white">#FFFFFF</color>
+
+    <color name="black">#000000</color>
+
+
+
+    <!-- Colors for the game -->
+
+    <color name="highlightColor">#FFBB33</color>        <!-- Highlighted winning combination -->
+
+    <color name="winXColor">#F44336</color>            <!-- Background color when X wins -->
+
+    <color name="winOColor">#2196F3</color>            <!-- Background color when O wins -->
+
+    <color name="backgroundColor">#F0F0F0</color>      <!-- Default background color -->
+
+    <color name="textColorX">#FF0000</color>           <!-- Text color for X -->
+
+    <color name="textColorO">#0000FF</color>           <!-- Text color for O -->
+
+
+
+    <!-- New Colors -->
+
+    <color name="scoreColor">#1A237E</color>           <!-- Color for the score text -->
+
+    <color name="resetButtonColor">#4CAF50</color>     <!-- Background color of reset button -->
+
+    <color name="gridLineColor">#BDBDBD</color>        <!-- Grid line color -->
+
+    <color name="buttonNormalColor">#3D5AFE</color>   <!-- Royal Blue -->
+    <color name="buttonPressedColor">#1A237E</color>  <!-- Dark Blue -->
+    <color name="buttonBorderColor">#FFFFFF</color>   <!-- White -->
+
+
+
+</resources>

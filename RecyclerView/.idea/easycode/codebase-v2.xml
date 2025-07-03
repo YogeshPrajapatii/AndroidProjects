@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="com.obiscr.chatgpt.settings.EasyCodeState">
+    <option name="projectFiles" value="$PROJECT_DIR$/app/src/androidTest/java/com/devleoperyogi/recyclerview/ExampleInstrumentedTest.java;C:/Users/verma/AndroidStudioProjects/RecyclerView/app/src/main/java/com/devleoperyogi/recyclerview/contactModel.java;C:/Users/verma/AndroidStudioProjects/RecyclerView/app/src/main/java/com/devleoperyogi/recyclerview/MainActivity.java;C:/Users/verma/AndroidStudioProjects/RecyclerView/app/src/main/java/com/devleoperyogi/recyclerview/RecyclerContactAdapter.java;C:/Users/verma/AndroidStudioProjects/RecyclerView/app/src/test/java/com/devleoperyogi/recyclerview/ExampleUnitTest.java;C:/Users/verma/AndroidStudioProjects/RecyclerView/app/build.gradle.kts;C:/Users/verma/AndroidStudioProjects/RecyclerView/build.gradle.kts;C:/Users/verma/AndroidStudioProjects/RecyclerView/settings.gradle.kts" />
+  </component>
+</project>

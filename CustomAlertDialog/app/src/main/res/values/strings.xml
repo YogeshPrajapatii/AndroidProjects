@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Custom Alert Dialog</string>
+    <string name="todo">TODO</string>
+    <string name="done">Order Placed !</string>
+    <string name="success"> Your Order Placed Successfully.</string>
+    <string name="ok">OK</string>
+</resources>
