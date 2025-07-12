@@ -1,4 +1,4 @@
-package com.yogesh.stylish.presentation.ui.screens
+package com.yogesh.stylish.presentation.ui.screens.authscreens
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.Arrangement
@@ -34,64 +34,50 @@ import com.yogesh.stylish.ui.theme.Stylish
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ForgotPassword(navController: NavHostController) {
-    
+
 
     val standardPadding = 16.dp
     var emailAddress by rememberSaveable { mutableStateOf("") }
 
-    Scaffold(
-        topBar = {
-            
-        },
-        bottomBar = {
-           
-        },
-        content = {
+    Scaffold(topBar = {
 
-            Column(
-                modifier = Modifier
-                    .fillMaxWidth()
-                       .windowInsetsPadding(WindowInsets.statusBars)
-                    .padding(horizontal = 24.dp), 
-                horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.spacedBy(standardPadding)
+    }, bottomBar = {
+
+    }, content = {
+
+        Column(modifier = Modifier
+            .fillMaxWidth()
+            .windowInsetsPadding(WindowInsets.statusBars)
+            .padding(horizontal = 24.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.spacedBy(standardPadding)) {
+
+
+            Text(text = "Forgot\nPassword ?",
+                style = MaterialTheme.typography.headlineLarge,
+                textAlign = TextAlign.Start,
+                modifier = Modifier.fillMaxWidth())
+
+            // Input Field
+            OutlinedTextField(value = emailAddress, onValueChange = { emailAddress = it }, label = {
+                Text("Enter your email", style = MaterialTheme.typography.bodyLarge)
+            }, modifier = Modifier.fillMaxWidth())
+
+
+            Text("* We will send you a message to\n reset your password.",
+                style = MaterialTheme.typography.bodyMedium,
+                modifier = Modifier.fillMaxWidth())
+
+
+            ElevatedButton(
+                onClick = { navController.navigate(Routes.ResetPassword) },
+                colors = ButtonDefaults.elevatedButtonColors(containerColor = Stylish),
+                modifier = Modifier.fillMaxWidth(),
             ) {
-
-             
-                Text(
-                    text = "Forgot\nPassword ?",
-                    style = MaterialTheme.typography.headlineLarge,
-                    textAlign = TextAlign.Start,
-                    modifier = Modifier.fillMaxWidth()
-                )
-
-                // Input Field
-                OutlinedTextField(
-                    value = emailAddress,
-                    onValueChange = { emailAddress = it },
-                    label = { Text("Enter your email") },
-                    modifier = Modifier.fillMaxWidth()
-                )
-
-            
-                Text(
-                    "* We will send you a message to\n reset your password.",
-                    style = MaterialTheme.typography.bodyMedium,
-                    modifier = Modifier.fillMaxWidth()
-                )
-
-          
-                ElevatedButton(
-                    onClick = {navController.navigate(Routes.ResetPassword)},
-                    colors = ButtonDefaults.elevatedButtonColors(containerColor = Stylish),
-                    modifier = Modifier.fillMaxWidth()
-                    ,
-                ) {
-                    Text("Submit")
-                }
+                Text("Submit", style = MaterialTheme.typography.headlineSmall)
             }
         }
-    )
+    })
 }
 
 @Preview(showSystemUi = true)

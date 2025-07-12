@@ -29,8 +29,9 @@ import com.yogesh.stylish.presentation.navigation.Routes
 @Composable
 fun OnBoarding2(navController: NavHostController) {
 
-    Column(modifier = Modifier.fillMaxSize()
-        .windowInsetsPadding(WindowInsets.statusBars) ,
+    Column(modifier = Modifier
+        .fillMaxSize()
+        .windowInsetsPadding(WindowInsets.statusBars),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.SpaceBetween) {
 
@@ -68,7 +69,8 @@ fun OnBoarding2(navController: NavHostController) {
             .fillMaxWidth()
             .padding(16.dp),
             horizontalArrangement = Arrangement.SpaceBetween) {
-            Text("Previous", modifier = Modifier.clickable { navController.navigate(Routes.OnBoarding1 )})
+            Text("Previous",
+                modifier = Modifier.clickable { navController.navigate(Routes.OnBoarding1) })
             Text("Next",
                 color = Color.Red,
                 modifier = Modifier.clickable { navController.navigate(Routes.OnBoarding3) })

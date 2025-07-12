@@ -1,4 +1,4 @@
-package com.yogesh.stylish.presentation.ui.screens
+package com.yogesh.stylish.presentation.ui.screens.authscreens
 
 import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement
@@ -43,7 +43,7 @@ fun ResetPassword(navController: NavHostController) {
         modifier = Modifier
             .fillMaxWidth()
             .padding(horizontal = 24.dp)
-            .windowInsetsPadding(WindowInsets.statusBars) ,
+            .windowInsetsPadding(WindowInsets.statusBars),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(standardSpacing),
     ) {
@@ -61,7 +61,7 @@ fun ResetPassword(navController: NavHostController) {
             value = newPassword, onValueChange = {
                 newPassword = it
             }, label = {
-                Text("New Password")
+                Text("New Password", style = MaterialTheme.typography.bodyLarge)
             }, modifier = Modifier.fillMaxWidth()
 
         )
@@ -71,7 +71,7 @@ fun ResetPassword(navController: NavHostController) {
 
             value = confirmPassword,
             onValueChange = { confirmPassword = it },
-            label = { Text("Confirm Password") },
+            label = { Text("Confirm Password", style = MaterialTheme.typography.bodyLarge) },
             modifier = Modifier.fillMaxWidth())
 
 
@@ -90,7 +90,7 @@ fun ResetPassword(navController: NavHostController) {
         },
             colors = ButtonDefaults.elevatedButtonColors(containerColor = Stylish),
             modifier = Modifier.fillMaxWidth()) {
-            Text("Change Password")
+            Text("Change Password", style = MaterialTheme.typography.titleLarge)
         }
 
 

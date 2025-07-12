@@ -1,4 +1,4 @@
-package com.yogesh.stylish.presentation.ui.screens
+package com.yogesh.stylish.presentation.ui.screens.authscreens
 
 import android.annotation.SuppressLint
 import android.widget.Toast
@@ -31,7 +31,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -39,7 +38,6 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.yogesh.stylish.R
 import com.yogesh.stylish.presentation.navigation.Routes
-import com.yogesh.stylish.presentation.ui.theme.MontserratFont
 import com.yogesh.stylish.ui.theme.Stylish
 
 
@@ -73,31 +71,34 @@ fun SignUp(navController: NavHostController) {
         Column(modifier = Modifier
             .fillMaxWidth()
             .padding(horizontal = 24.dp)
-              .windowInsetsPadding(WindowInsets.statusBars) ,
+            .windowInsetsPadding(WindowInsets.statusBars),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(standardSpacing)) {
 
 
             Text(text = "Create an\naccount",
                 modifier = Modifier
-                    .padding(start = 16.dp)
+                    .padding(start = 8.dp)
                     .fillMaxWidth(),
                 textAlign = TextAlign.Left,
-                style = MaterialTheme.typography.headlineLarge)
+                style = MaterialTheme.typography.titleLarge)
 
 
             OutlinedTextField(
 
-                value = userId, onValueChange = {
+                value = userId,
+                onValueChange = {
                     userId = it
-                }, label = { Text("Username of Email") }, modifier = Modifier.fillMaxWidth())
+                },
+                label = { Text("Username of Email", style = MaterialTheme.typography.bodyLarge) },
+                modifier = Modifier.fillMaxWidth())
 
             OutlinedTextField(
 
                 value = password, onValueChange = {
                     password = it
                 }, label = {
-                    Text("Password")
+                    Text("Password", style = MaterialTheme.typography.bodyLarge)
                 }, modifier = Modifier.fillMaxWidth()
 
             )
@@ -107,7 +108,7 @@ fun SignUp(navController: NavHostController) {
 
                 value = confirmPassword,
                 onValueChange = { confirmPassword = it },
-                label = { Text("Confirm Password") },
+                label = { Text("Confirm Password", style = MaterialTheme.typography.bodyLarge) },
                 modifier = Modifier.fillMaxWidth())
 
 
@@ -125,10 +126,10 @@ fun SignUp(navController: NavHostController) {
             },
                 colors = ButtonDefaults.elevatedButtonColors(containerColor = Stylish),
                 modifier = Modifier.fillMaxWidth()) {
-                Text("Create Account")
+                Text("Create Account", style = MaterialTheme.typography.titleLarge)
             }
 
-            Text("- Or continue with -")
+            Text("- Or continue with -", style = MaterialTheme.typography.bodyLarge)
 
             Row(horizontalArrangement = Arrangement.spacedBy(16.dp),
                 verticalAlignment = Alignment.CenterVertically) {
@@ -166,11 +167,11 @@ fun SignUp(navController: NavHostController) {
 
 
             Row() {
-                Text("I have already an account, ")
+                Text("I have already an account, ", style = MaterialTheme.typography.bodyLarge)
                 Text("Login",
-                    fontFamily = MontserratFont , fontWeight = FontWeight.SemiBold,
                     modifier = Modifier.clickable { navController.navigate(Routes.Login) },
-                    color = Color.Blue)
+                    color = Color.Blue,
+                    style = MaterialTheme.typography.bodyLarge)
             }
         }
     })

@@ -57,7 +57,6 @@ fun MyFirstComposeAppTheme(
 
     MaterialTheme(
         colorScheme = colorScheme,
-        typography = StylishTypography,
         content = content
     )
 }

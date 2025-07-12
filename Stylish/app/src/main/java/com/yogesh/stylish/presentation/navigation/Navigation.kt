@@ -5,11 +5,11 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.yogesh.stylish.presentation.ui.screens.ForgotPassword
 import com.yogesh.stylish.presentation.ui.screens.HomeScreen
-import com.yogesh.stylish.presentation.ui.screens.Login
-import com.yogesh.stylish.presentation.ui.screens.ResetPassword
-import com.yogesh.stylish.presentation.ui.screens.SignUp
+import com.yogesh.stylish.presentation.ui.screens.authscreens.ForgotPassword
+import com.yogesh.stylish.presentation.ui.screens.authscreens.Login
+import com.yogesh.stylish.presentation.ui.screens.authscreens.ResetPassword
+import com.yogesh.stylish.presentation.ui.screens.authscreens.SignUp
 import com.yogesh.stylish.presentation.ui.screens.onboardingscreens.OnBoarding1
 import com.yogesh.stylish.presentation.ui.screens.onboardingscreens.OnBoarding2
 import com.yogesh.stylish.presentation.ui.screens.onboardingscreens.OnBoarding3
@@ -40,10 +40,10 @@ fun Navigation() {
         composable<Routes.ForgotPassword> {
             ForgotPassword(navController)
         }
-        
-        composable<Routes.ResetPassword>{ ResetPassword(navController) }
-        
-        composable<Routes.HomeScreen>{ HomeScreen(navController) }
+
+        composable<Routes.ResetPassword> { ResetPassword(navController) }
+
+        composable<Routes.HomeScreen> { HomeScreen(navController) }
 
 
     }

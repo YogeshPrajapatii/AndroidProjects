@@ -1,4 +1,4 @@
-package com.yogesh.stylish.presentation.ui.screens
+package com.yogesh.stylish.presentation.ui.screens.authscreens
 
 import android.annotation.SuppressLint
 import android.widget.Toast

@@ -40,9 +40,8 @@ fun Splash(navController: NavHostController) {
 
     Box(modifier = Modifier
         .fillMaxSize()
-            .windowInsetsPadding(WindowInsets.statusBars)
-        .background(Color.White),
-        contentAlignment = Alignment.Center) {
+        .windowInsetsPadding(WindowInsets.statusBars)
+        .background(Color.White), contentAlignment = Alignment.Center) {
 
 
         Column(modifier = Modifier

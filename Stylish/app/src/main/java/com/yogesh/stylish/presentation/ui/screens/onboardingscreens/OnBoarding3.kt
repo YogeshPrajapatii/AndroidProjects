@@ -30,8 +30,9 @@ import com.yogesh.stylish.presentation.navigation.Routes
 @Composable
 fun OnBoarding3(navController: NavHostController) {
 
-    Column(modifier = Modifier.fillMaxSize()
-        .windowInsetsPadding(WindowInsets.statusBars) ,
+    Column(modifier = Modifier
+        .fillMaxSize()
+        .windowInsetsPadding(WindowInsets.statusBars),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.SpaceBetween) {
 

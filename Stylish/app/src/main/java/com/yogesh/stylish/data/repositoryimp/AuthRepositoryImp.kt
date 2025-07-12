@@ -16,7 +16,7 @@ class AuthRepositoryImp(private val firebaseAuth: FirebaseAuth) : AuthRepository
 
         } catch (e: Exception) {
 
-            Result.Failure(e.localizedMessage ?: "Unexpected error occured during login !")
+            Result.Failure(e.localizedMessage ?: "Unexpected error occurred during login !")
         }
 
 
