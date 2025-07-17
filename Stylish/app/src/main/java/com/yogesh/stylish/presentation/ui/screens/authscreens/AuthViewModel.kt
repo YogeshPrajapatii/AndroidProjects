@@ -12,7 +12,8 @@ import kotlinx.coroutines.launch
 
 class AuthViewModel(
 
-    private val loginUseCase: LoginUseCase, private val signUpUseCase: SignUpUseCase
+    private val loginUseCase: LoginUseCase,
+    private val signUpUseCase: SignUpUseCase
 
 ) : ViewModel() {
 
@@ -24,12 +25,13 @@ class AuthViewModel(
 
         viewModelScope.launch {
 
-            try {
-                _authState.value = loginUseCase(email, password)
-
-            } catch (e: Exception) {
-                _authState.value = Result.Failure(e.localizedMessage ?: "Login Failed!")
-            }
+//            try {
+//                _authState.value = loginUseCase(email, password)
+//
+//            } catch (e: Exception) {
+//                _authState.value = Result.Failure(e.localizedMessage ?: "Login Failed!")
+//            }
+            _authState.value = loginUseCase(email = email, password = password)
 
         }
     }
@@ -39,12 +41,13 @@ class AuthViewModel(
         _authState.value = Result.Loading
 
         viewModelScope.launch {
-
-            try {
-                _authState.value = signUpUseCase(email, password)
-            } catch (e: Exception) {
-                _authState.value = Result.Failure(e.localizedMessage ?: "Sign Up Failed!")
-            }
+//
+//            try {
+//                _authState.value = signUpUseCase(email, password)
+//            } catch (e: Exception) {
+//                _authState.value = Result.Failure(e.localizedMessage ?: "Sign Up Failed!")
+//            }
+            _authState.value = signUpUseCase(email = email, password = password)
 
         }
 

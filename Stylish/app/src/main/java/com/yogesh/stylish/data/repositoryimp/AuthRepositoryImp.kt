@@ -12,7 +12,7 @@ class AuthRepositoryImp(private val firebaseAuth: FirebaseAuth) : AuthRepository
         return try {
 
             firebaseAuth.signInWithEmailAndPassword(email, password).await()
-            Result.Success("Login Success")
+            Result.Success(data="Login Success")
 
         } catch (e: Exception) {
 
@@ -29,7 +29,7 @@ class AuthRepositoryImp(private val firebaseAuth: FirebaseAuth) : AuthRepository
             Result.Success("Sign up success")
         } catch (e: Exception) {
 
-            Result.Failure("Unknown error during sign up !")
+            Result.Failure(e.localizedMessage ?: "Unknown error during sign up !")
 
         }
 
@@ -37,4 +37,4 @@ class AuthRepositoryImp(private val firebaseAuth: FirebaseAuth) : AuthRepository
     }
 
 
-}
+}        

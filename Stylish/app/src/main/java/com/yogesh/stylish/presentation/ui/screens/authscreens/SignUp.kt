@@ -22,6 +22,8 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -34,9 +36,11 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.yogesh.stylish.R
+import com.yogesh.stylish.domain.util.Result
 import com.yogesh.stylish.presentation.navigation.Routes
 import com.yogesh.stylish.ui.theme.Stylish
 
@@ -44,12 +48,41 @@ import com.yogesh.stylish.ui.theme.Stylish
 @OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun SignUp(navController: NavHostController) {
+fun SignUp(navController: NavHostController, authViewModel: AuthViewModel = viewModel()) {
     var userId by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
     var confirmPassword by remember { mutableStateOf("") }
     val standardSpacing = 16.dp
     val context = LocalContext.current
+
+
+    var showError by remember { mutableStateOf(false) }
+    var errorMessage by remember { mutableStateOf("") }
+
+    val authState by authViewModel.authState.collectAsState()
+
+    LaunchedEffect(authState) {
+        when (val currentState = authState) {
+            is Result.Failure -> {
+                showError = true
+                errorMessage = currentState.message
+            }
+
+            Result.Ideal, Result.Loading -> {
+                showError = false
+
+            }
+
+        
+            is Result.Success<*> -> {
+                navController.navigate(Routes.HomeScreen) {
+                }
+            }
+        }
+
+    }
+
+
 
     Scaffold(topBar = {
 
@@ -115,11 +148,13 @@ fun SignUp(navController: NavHostController) {
             ElevatedButton(onClick = {
 
 
-                if (userId.isBlank() || password.isBlank() || confirmPassword.isBlank()) {
-                    Toast.makeText(context, "Invalid Credentials", Toast.LENGTH_SHORT).show()
+                if (userId.isNotBlank() && password.isNotBlank() ) {
+                    authViewModel.signup(userId, password)
+
 
                 } else {
-                    navController.navigate(Routes.Login)
+                    Toast.makeText(context, "Invalid Credentials", Toast.LENGTH_SHORT).show()
+
                 }
 
 
@@ -182,5 +217,4 @@ fun SignUp(navController: NavHostController) {
 @Composable
 fun SignUpPreview() {
     val navController = rememberNavController()
-    SignUp(navController)
 }
