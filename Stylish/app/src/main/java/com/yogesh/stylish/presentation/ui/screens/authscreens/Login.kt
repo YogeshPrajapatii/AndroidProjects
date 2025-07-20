@@ -41,6 +41,9 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.yogesh.stylish.R
+import com.yogesh.stylish.data.repositoryimp.AuthRepositoryImpl
+import com.yogesh.stylish.domain.usecase.LoginUseCase
+import com.yogesh.stylish.domain.usecase.SignUpUseCase
 import com.yogesh.stylish.domain.util.Result
 import com.yogesh.stylish.presentation.navigation.Routes
 import com.yogesh.stylish.ui.theme.Stylish
@@ -48,11 +51,15 @@ import com.yogesh.stylish.ui.theme.Stylish
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Login(navController: NavHostController, authViewModel: AuthViewModel 
+fun Login(navController: NavHostController
 ) {
 
     val standardPadding = 16.dp
     val context = LocalContext.current
+    val authViewModel: AuthViewModel =
+        viewModel(factory = AuthViewModelFactory(loginUseCase = LoginUseCase(AuthRepositoryImpl()),
+            signUpUseCase = SignUpUseCase(AuthRepositoryImpl())))
+
 
     var userId by rememberSaveable { mutableStateOf("") }
     var password by rememberSaveable { mutableStateOf("") }
@@ -72,10 +79,8 @@ fun Login(navController: NavHostController, authViewModel: AuthViewModel
                 showError = false
             }
 
-
-
             is Result.Success -> {
-                
+
             }
         }
 
@@ -87,19 +92,17 @@ fun Login(navController: NavHostController, authViewModel: AuthViewModel
 
         topBar = {
 
-            /* TopAppBar(title = { Text("Login") })*/
+
         },
 
         bottomBar = {
-            /* BottomAppBar {
-                 Text("E - Commerce App")
-             }*/
+
         },
 
-        content = {/* innerPadding ->*/
+        content = {
 
             Column(modifier = Modifier
-                .fillMaxWidth()/* .padding(innerPadding),*/
+                .fillMaxWidth()
                 .padding(horizontal = 24.dp)
                 .windowInsetsPadding(WindowInsets.statusBars),
                 horizontalAlignment = Alignment.CenterHorizontally,
@@ -196,8 +199,6 @@ fun Login(navController: NavHostController, authViewModel: AuthViewModel
 
 
         })
-
-
 }
 
 @Preview(showSystemUi = true)

@@ -40,6 +40,9 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.yogesh.stylish.R
+import com.yogesh.stylish.data.repositoryimp.AuthRepositoryImpl
+import com.yogesh.stylish.domain.usecase.LoginUseCase
+import com.yogesh.stylish.domain.usecase.SignUpUseCase
 import com.yogesh.stylish.domain.util.Result
 import com.yogesh.stylish.presentation.navigation.Routes
 import com.yogesh.stylish.ui.theme.Stylish
@@ -48,12 +51,14 @@ import com.yogesh.stylish.ui.theme.Stylish
 @OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun SignUp(navController: NavHostController, authViewModel: AuthViewModel = viewModel()) {
+fun SignUp(navController: NavHostController) {
     var userId by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
-    var confirmPassword by remember { mutableStateOf("") }
     val standardSpacing = 16.dp
     val context = LocalContext.current
+    val authViewModel: AuthViewModel =
+        viewModel(factory = AuthViewModelFactory(loginUseCase = LoginUseCase(AuthRepositoryImpl()),
+            signUpUseCase = SignUpUseCase(AuthRepositoryImpl())))
 
 
     var showError by remember { mutableStateOf(false) }
@@ -73,10 +78,9 @@ fun SignUp(navController: NavHostController, authViewModel: AuthViewModel = view
 
             }
 
-        
+
             is Result.Success<*> -> {
-                navController.navigate(Routes.HomeScreen) {
-                }
+                navController.navigate(Routes.HomeScreen) {}
             }
         }
 
@@ -86,21 +90,10 @@ fun SignUp(navController: NavHostController, authViewModel: AuthViewModel = view
 
     Scaffold(topBar = {
 
-        /*TopAppBar(title = {Text("Sign Up") })*/
-
-
     }, bottomBar = {
-        /*BottomAppBar {
 
-            Text("E - Commerce App",
-                modifier = Modifier
-                    .padding(16.dp)
-                    .fillMaxWidth(),
-                textAlign = TextAlign.End)
 
-        }*/
-
-    }, content = { /*innerPadding ->*/
+    }, content = {
         Column(modifier = Modifier
             .fillMaxWidth()
             .padding(horizontal = 24.dp)
@@ -139,8 +132,8 @@ fun SignUp(navController: NavHostController, authViewModel: AuthViewModel = view
             OutlinedTextField(
 
 
-                value = confirmPassword,
-                onValueChange = { confirmPassword = it },
+                value = password,
+                onValueChange = { password = it },
                 label = { Text("Confirm Password", style = MaterialTheme.typography.bodyLarge) },
                 modifier = Modifier.fillMaxWidth())
 
@@ -148,7 +141,7 @@ fun SignUp(navController: NavHostController, authViewModel: AuthViewModel = view
             ElevatedButton(onClick = {
 
 
-                if (userId.isNotBlank() && password.isNotBlank() ) {
+                if (userId.isNotBlank() && password.isNotBlank()) {
                     authViewModel.signup(userId, password)
 
 
@@ -210,6 +203,7 @@ fun SignUp(navController: NavHostController, authViewModel: AuthViewModel = view
             }
         }
     })
+
 
 }
 

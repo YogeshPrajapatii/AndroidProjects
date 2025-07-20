@@ -2,16 +2,10 @@ package com.yogesh.stylish.presentation.navigation
 
 import Splash
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.google.firebase.auth.FirebaseAuth
-import com.yogesh.stylish.data.repositoryimp.AuthRepositoryImp
-import com.yogesh.stylish.domain.usecase.LoginUseCase
-import com.yogesh.stylish.domain.usecase.SignUpUseCase
 import com.yogesh.stylish.presentation.ui.screens.HomeScreen
-import com.yogesh.stylish.presentation.ui.screens.authscreens.AuthViewModel
 import com.yogesh.stylish.presentation.ui.screens.authscreens.ForgotPassword
 import com.yogesh.stylish.presentation.ui.screens.authscreens.Login
 import com.yogesh.stylish.presentation.ui.screens.authscreens.ResetPassword
@@ -21,11 +15,11 @@ import com.yogesh.stylish.presentation.ui.screens.onboardingscreens.OnBoarding2
 import com.yogesh.stylish.presentation.ui.screens.onboardingscreens.OnBoarding3
 
 @Composable
-fun Navigation(authViewModel: AuthViewModel) {
+fun Navigation() {
 
     val navController = rememberNavController()
 
-   
+
 
     NavHost(navController = navController, startDestination = Routes.Splash) {
 
@@ -38,11 +32,11 @@ fun Navigation(authViewModel: AuthViewModel) {
         composable<Routes.OnBoarding3> { OnBoarding3(navController) }
 
         composable<Routes.SignUp> {
-            SignUp(navController,authViewModel)
+            SignUp(navController)
         }
 
         composable<Routes.Login> {
-            Login(navController, authViewModel)
+            Login(navController)
         }
 
         composable<Routes.ForgotPassword> {

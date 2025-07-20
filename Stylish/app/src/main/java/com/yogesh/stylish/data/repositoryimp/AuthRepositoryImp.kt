@@ -6,35 +6,23 @@ import com.yogesh.stylish.domain.util.Result
 import kotlinx.coroutines.tasks.await
 
 
-class AuthRepositoryImp(private val firebaseAuth: FirebaseAuth) : AuthRepository {
+class AuthRepositoryImpl : AuthRepository {
     override suspend fun login(email: String, password: String): Result<String> {
 
         return try {
-
-            firebaseAuth.signInWithEmailAndPassword(email, password).await()
-            Result.Success(data="Login Success")
-
+            FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password).await()
+            Result.Success("Login Successful")
         } catch (e: Exception) {
-
-            Result.Failure(e.localizedMessage ?: "Unexpected error occurred during login !")
+            Result.Failure(e.message ?: "Login failed")
         }
-
-
     }
 
-    override suspend fun signup(email: String, password: String
-    ): Result<String> {
+    override suspend fun signup(email: String, password: String): Result<String> {
         return try {
-            firebaseAuth.createUserWithEmailAndPassword(email, password).await()
-            Result.Success("Sign up success")
+            FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password).await()
+            Result.Success("Sign Up Successful")
         } catch (e: Exception) {
-
-            Result.Failure(e.localizedMessage ?: "Unknown error during sign up !")
-
+            Result.Failure(e.message ?: "Sign up failed")
         }
-
-
     }
-
-
-}        
+}

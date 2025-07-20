@@ -9,12 +9,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
-
-class AuthViewModel(
-
-    private val loginUseCase: LoginUseCase,
-    private val signUpUseCase: SignUpUseCase
-
+class AuthViewModel(private val loginUseCase: LoginUseCase, private val signUpUseCase: SignUpUseCase
 ) : ViewModel() {
 
     private val _authState = MutableStateFlow<Result<String>>(Result.Ideal)
@@ -24,35 +19,23 @@ class AuthViewModel(
         _authState.value = Result.Loading
 
         viewModelScope.launch {
-
-//            try {
-//                _authState.value = loginUseCase(email, password)
-//
-//            } catch (e: Exception) {
-//                _authState.value = Result.Failure(e.localizedMessage ?: "Login Failed!")
-//            }
-            _authState.value = loginUseCase(email = email, password = password)
-
+            try {
+                _authState.value = loginUseCase(email, password)
+            } catch (e: Exception) {
+                _authState.value = Result.Failure(e.localizedMessage ?: "Login Failed!")
+            }
         }
     }
 
     fun signup(email: String, password: String) {
-
         _authState.value = Result.Loading
 
         viewModelScope.launch {
-//
-//            try {
-//                _authState.value = signUpUseCase(email, password)
-//            } catch (e: Exception) {
-//                _authState.value = Result.Failure(e.localizedMessage ?: "Sign Up Failed!")
-//            }
-            _authState.value = signUpUseCase(email = email, password = password)
-
+            try {
+                _authState.value = signUpUseCase(email, password)
+            } catch (e: Exception) {
+                _authState.value = Result.Failure(e.localizedMessage ?: "Sign Up Failed!")
+            }
         }
-
-
     }
-
-
 }
