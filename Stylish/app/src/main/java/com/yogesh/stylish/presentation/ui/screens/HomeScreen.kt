@@ -29,38 +29,32 @@ fun HomeScreen(navController: NavHostController) {
 
     Column(horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
-        modifier = Modifier.windowInsetsPadding(WindowInsets.statusBars) ) {
+        modifier = Modifier.windowInsetsPadding(WindowInsets.statusBars)) {
 
         Column(modifier = Modifier
             .padding(24.dp)
             .fillMaxSize(),
-           horizontalAlignment = Alignment.CenterHorizontally,
+            horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center) {
 
             Text("!! Welcome to my App !!", style = MaterialTheme.typography.headlineMedium)
 
-            
-Spacer(modifier = Modifier.height(80.dp))
+
+            Spacer(modifier = Modifier.height(80.dp))
             ElevatedButton(onClick = {
-                
+
                 navController.navigate(Routes.Login)
-                
-            }, modifier =Modifier.fillMaxWidth()
-                , colors = ButtonDefaults.elevatedButtonColors(containerColor = Stylish)) { 
-                Text("Logout")}
+
+            },
+                modifier = Modifier.fillMaxWidth(),
+                colors = ButtonDefaults.elevatedButtonColors(containerColor = Stylish)) {
+                Text("Logout")
+            }
         }
 
 
     }
 
 
-}
-
-
-@Preview(showSystemUi = true)
-@Composable
-fun HomeScreenPreview() {
-    val navController = rememberNavController()
-    HomeScreen(navController)
 }
 

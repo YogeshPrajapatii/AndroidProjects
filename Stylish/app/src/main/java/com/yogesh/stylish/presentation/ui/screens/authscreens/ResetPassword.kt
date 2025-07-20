@@ -34,7 +34,6 @@ fun ResetPassword(navController: NavHostController) {
 
 
     var newPassword by remember { mutableStateOf("") }
-    var confirmPassword by remember { mutableStateOf("") }
     val standardSpacing = 16.dp
     val context = LocalContext.current
 
@@ -69,15 +68,15 @@ fun ResetPassword(navController: NavHostController) {
         OutlinedTextField(
 
 
-            value = confirmPassword,
-            onValueChange = { confirmPassword = it },
+            value = newPassword,
+            onValueChange = { newPassword = it },
             label = { Text("Confirm Password", style = MaterialTheme.typography.bodyLarge) },
             modifier = Modifier.fillMaxWidth())
 
 
         ElevatedButton(onClick = {
 
-            if (newPassword.isBlank() || confirmPassword.isBlank()) {
+            if (newPassword.isBlank()) {
 
                 Toast.makeText(context, "Please enter your password !", Toast.LENGTH_SHORT).show()
 
@@ -95,12 +94,4 @@ fun ResetPassword(navController: NavHostController) {
 
 
     }
-}
-
-
-@Preview(showSystemUi = true)
-@Composable
-fun ResetPasswordPreview() {
-    val navController = rememberNavController()
-    ResetPassword(navController)
 }

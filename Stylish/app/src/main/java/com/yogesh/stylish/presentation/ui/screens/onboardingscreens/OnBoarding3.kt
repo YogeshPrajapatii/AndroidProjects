@@ -81,10 +81,3 @@ fun OnBoarding3(navController: NavHostController) {
 
 
 }
-
-@Preview(showSystemUi = true)
-@Composable
-fun OBS3_Preview() {
-    val navController = rememberNavController()
-    OnBoarding3(navController)
-}
