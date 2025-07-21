@@ -1,39 +1,97 @@
-# Android Projects 📱🚀
+   Android Projects Portfolio 🚀
+description: >
+  My Android development portfolio showcasing apps and mini-projects built with
+  Kotlin, Jetpack Compose, and modern Android development tools. Focused on building
+  production-ready apps and mastering full-stack native Android development.
 
-Welcome to my Android development repository! Here, you will find a collection of Android projects
-showcasing different concepts and features. Each project explores a unique aspect of Android
-development, helping me grow as a developer.
+about_me:
+  name: Yogesh Verma
+  education: MCA (Master of Computer Applications) - Ongoing
+  bio: >
+    Full Stack Native Android Developer in progress.
+    Neat Roots Cohort 3.0 Student.
+    Passionate about Kotlin, Jetpack Compose, and integrating AI into mobile apps.
+  focus:
+    - Stylish App: Production-level development with Firebase Auth & Clean Architecture.
+    - WeatherApp: API integration using Ktor and MVVM pattern.
+    - Learning advanced Android concepts: Coroutines, Flows, Dependency Injection, Clean Architecture.
 
-## 📂 Projects in this Repository:
+projects:
+  - name: AnimationsInAndroid
+    description: Demonstrates property, vector, and motion animations in Android UI.
+    status: Completed
+    emoji: 🎬
+  - name: BMICALCULATOR
+    description: Simple BMI calculator with user input and health recommendations.
+    status: Completed
+    emoji: 📊
+  - name: IntentPassing
+    description: Passing data between activities using explicit and implicit intents.
+    status: Completed
+    emoji: 🔄
+  - name: ListExample
+    description: Shows how to work with RecyclerView and ListView components.
+    status: Completed
+    emoji: 📜
+  - name: TicTacToe
+    description: 2-player Tic Tac Toe game using Android UI components.
+    status: Completed
+    emoji: 🎮
+  - name: WeatherApp
+    description: >
+      Weather app fetching live data using Ktor HTTP client and MVVM architecture.
+    status: In Progress
+    emoji: 🌤️
+  - name: Stylish
+    description: >
+      Production-level app with Firebase Auth, onboarding screens, and clean architecture.
+    status: Actively Developing
+    emoji: ✨
+  - name: Cohort3
+    description: >
+      Practice code & assignments from Neat Roots Cohort 3.0 Full Stack App Development Course.
+    status: Learning Space
+    emoji: 📚
 
-### 1️⃣ Animations in Android 🎬
+tech_stack:
+  languages:
+    - Kotlin
+    - Java
+  ui_frameworks:
+    - Jetpack Compose
+    - XML
+  architecture:
+    - MVVM
+    - Clean Architecture
+  tools_services:
+    - Android Studio
+    - Firebase
+    - Ktor HTTP Client
+    - Git
+    - GitHub
 
-A project showcasing various animations in Android, including property animations, vector
-animations, and motion layouts.
+gitignore:
+  - .idea/
+  - "*.iml"
+  - .gradle/
+  - local.properties
+  - /build/
+  - "*/build/"
+  - .DS_Store
+  - Thumbs.db
+  - "*.log"
+  - "*.xml"
+  - "*.tmp"
+  - "*.jks"
+  - "*.keystore"
 
-### 2️⃣ BMI Calculator 📊
+run_instructions:
+  - Clone this repository:
+    command: git clone https://github.com/YogeshPrajapatii/AndroidProjects.git
+  - Open the desired project in Android Studio
+  - Sync Gradle and download dependencies
+  - Connect a device/emulator and run the app
 
-A simple Body Mass Index (BMI) calculator that takes user input (weight & height) and provides BMI
-results with recommendations.
-
-### 3️⃣ Intent Passing 🔄
-
-Demonstrates how to pass data between activities using intents in Android.
-
-### 4️⃣ List Example 📜
-
-A project to understand RecyclerView, ListView, and other list-based UI components in Android.
-
-### 6️⃣ Tic Tac Toe 🎮
-
-A fun Tic Tac Toe game built using Android UI components, allowing two players to play on the same
-device.
-
-### Enrolled in Chohort 3.0 Full Stack App Development Course (By NEAT ROOTS)
----
-
-## ⚙️ **How to Run the Projects?**
-
-1. Clone the repository using:
-   ```sh
-   git clone https://github.com/YogeshPrajapatii/AndroidProjects.git
+contact:
+  github: https://github.com/YogeshPrajapatii
+  linkedin: https://linkedin.com/in/YogeshPrajapatii
