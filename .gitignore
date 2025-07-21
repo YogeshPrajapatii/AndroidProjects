@@ -1,18 +1,27 @@
-# Android Studio specific
+# Android Studio
 .idea/
 *.iml
 .gradle/
 local.properties
 
-# Build output
+# Build outputs
 /build/
 */build/
 
-# OS generated
+# OS-specific
 .DS_Store
 Thumbs.db
 
-# Misc
+# Miscellaneous
 *.log
-*.xml
 *.tmp
+
+# Gradle
+.gradle/
+*.apk
+*.ap_
+captures/
+
+# Keystore files
+*.jks
+*.keystore
