@@ -1,0 +1,14 @@
+<resources>
+
+    <style name="Theme.Stylish" parent="Theme.Material3.DayNight.NoActionBar">
+
+        <item name="android:windowSplashScreenAnimatedIcon">@null</item>
+        <item name="android:windowSplashScreenIconBackgroundColor">@android:color/white</item>
+        <item name="android:windowSplashScreenBackground">@android:color/white</item>
+        <item name="android:windowIsTranslucent">true</item>
+        // is se android ki default splash
+       // screen hide ho jati h
+
+
+    </style>
+</resources>
