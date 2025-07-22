@@ -15,19 +15,19 @@ import com.yogesh.weatherapp.ui.theme.WeatherAppTheme
 
 class MainActivity : ComponentActivity() {
 
-    private val apiKey = "7ed70440294057645d38c7899b20878d" // ✅ Tera API Key
+    private val apiKey = "7ed70440294057645d38c7899b20878d" // My API Key
 
-    // ✅ Ktor Service Inject
+    // Ktor Service Inject
     private val weatherApiService by lazy {
         WeatherApiService(apiKey)
     }
 
-    // ✅ Repository Inject
+    //  Repository Inject
     private val weatherRepository by lazy {
         WeatherRepoImp(weatherApiService)
     }
 
-    // ✅ ViewModel Inject (Sir wala exact style)
+    //  ViewModel Inject 
     private val viewModel by viewModels<WeatherViewModel> {
         object : ViewModelProvider.Factory {
             override fun <T : ViewModel> create(modelClass: Class<T>): T {

@@ -2,7 +2,6 @@ package com.yogesh.weatherapp.data.remote
 
 import com.yogesh.weatherapp.data.dto.WeatherDto
 import io.ktor.client.HttpClient
-import io.ktor.client.call.body
 import io.ktor.client.engine.cio.CIO
 import io.ktor.client.plugins.HttpTimeout
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
@@ -21,7 +20,7 @@ class WeatherApiService(private val apiKey: String) {
             json(Json {
                 ignoreUnknownKeys = true
                 isLenient = true
-                coerceInputValues = true // ✅ Missing fields ke liye default values use karega
+                coerceInputValues = true //  Missing fields ke liye default values use karega
             })
         }
 
@@ -47,10 +46,11 @@ class WeatherApiService(private val apiKey: String) {
                 parameter("units", "metric")
             }
 
-            val responseBody = response.bodyAsText() // 👈 Ye import karo: io.ktor.client.call.bodyAsText
-            println("API Response: $responseBody") // 👀 Console me API ka raw JSON dekhne ke liye
+            val responseBody =
+                response.bodyAsText() //  Ye import karo: io.ktor.client.call.bodyAsText
+            println("API Response: $responseBody") //  Console me API ka raw JSON dekhne ke liye
 
-            Json.decodeFromString<WeatherDto>(responseBody) // ✅ Response ko DTO me convert
+            Json.decodeFromString<WeatherDto>(responseBody) //  Response ko DTO me convert
         } catch (e: Exception) {
             e.printStackTrace()
             throw Exception("Failed to fetch weather data: ${e.localizedMessage}")
