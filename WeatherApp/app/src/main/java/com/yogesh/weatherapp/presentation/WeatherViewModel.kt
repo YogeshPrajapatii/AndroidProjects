@@ -26,6 +26,7 @@ class WeatherViewModel(private val weatherRepository: WeatherRepository
             try {
                 val response = weatherRepository.getWeather(city.value)
                 weatherState.value = Result.Success(response)
+                city.value = ""
             } catch (e: Exception) {
                 errorMessage.value = "Something went wrong"
                 weatherState.value = Result.Error(errorMessage.value!!)

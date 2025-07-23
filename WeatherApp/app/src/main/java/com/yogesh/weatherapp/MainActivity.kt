@@ -11,6 +11,7 @@ import com.yogesh.weatherapp.data.remote.WeatherApiService
 import com.yogesh.weatherapp.data.repositoryimp.WeatherRepoImp
 import com.yogesh.weatherapp.presentation.WeatherScreen
 import com.yogesh.weatherapp.presentation.WeatherViewModel
+import com.yogesh.weatherapp.presentation.navigation.Navigation
 import com.yogesh.weatherapp.ui.theme.WeatherAppTheme
 
 class MainActivity : ComponentActivity() {
@@ -41,7 +42,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             WeatherAppTheme {
-                WeatherScreen(viewModel)
+                Navigation(viewModel)
             }
         }
     }
