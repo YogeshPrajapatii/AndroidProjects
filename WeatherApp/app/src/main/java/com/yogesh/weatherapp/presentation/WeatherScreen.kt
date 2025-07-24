@@ -60,7 +60,7 @@ fun WeatherScreen(viewModel: WeatherViewModel, navController: NavHostController)
             //  Friendly Heading
             Text(text = "Know Your City Weather 🌤️",
                 color = Color.White,
-                fontSize = 26.sp,
+                fontSize = 18.sp,
                 fontWeight = FontWeight.Bold,
                 modifier = Modifier.padding(bottom = 24.dp))
 
