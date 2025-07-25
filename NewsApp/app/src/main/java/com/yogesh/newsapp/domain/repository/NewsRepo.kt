@@ -1,4 +1,10 @@
 package com.yogesh.newsapp.domain.repository
 
-interface NewsRepo {
+interface  NewsRepo {
+    
+    fun getNews(news:String){
+        
+        
+    }
+    
 }
