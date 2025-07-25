@@ -43,6 +43,8 @@ dependencies {
     implementation("io.ktor:ktor-client-okhttp:2.3.0")
     implementation("io.ktor:ktor-client-content-negotiation:2.3.0")
     implementation("io.ktor:ktor-serialization-kotlinx-json:2.3.0")
+    implementation("io.ktor:ktor-client-cio:2.3.7") // 👈 Required for CIO engine
+
 
     //  Serialization
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0")
@@ -51,6 +53,9 @@ dependencies {
     implementation("androidx.navigation:navigation-compose:2.7.7")
 
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")
+
+    implementation("io.coil-kt:coil-compose:2.6.0")
+
 
 
 
