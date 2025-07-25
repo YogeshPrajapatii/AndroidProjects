@@ -1,6 +1,5 @@
-package com.yogesh.newsapp.ui.theme
+package com.yogesh.newsapp.presentation.theme
 
-import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
