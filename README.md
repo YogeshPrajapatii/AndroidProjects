@@ -94,4 +94,4 @@ run_instructions:
 
 contact:
   github: https://github.com/YogeshPrajapatii
-  linkedin: https://linkedin.com/in/YogeshPrajapatii
+  linkedin: https://linkedin.com/in/YogeshPrajapatii 
